@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.button`
-  width: 100%;
+  width: fit-content;
   background-color: ${({ theme }) => theme.COLORS.RED};
   color: ${({ theme }) => theme.COLORS.WHITE};
 
@@ -18,4 +18,6 @@ export const Container = styled.button`
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
+
+  white-space: nowrap;
 `;

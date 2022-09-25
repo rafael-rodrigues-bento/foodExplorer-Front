@@ -23,7 +23,6 @@ export const Container = styled.header`
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 4rem;
 
     > a {
@@ -36,6 +35,7 @@ export const Container = styled.header`
       background-color: ${({ theme }) => theme.COLORS.BG_400};
       padding-left: 1.4rem;
       border-radius: 0.5rem;
+      width: 100%;
     }
 
     > .search input {
@@ -44,7 +44,7 @@ export const Container = styled.header`
       border: none;
       color: ${({ theme }) => theme.COLORS.WHITE};
       margin-left: 1.4rem;
-      min-width: 60rem;
+      width: 100%;
       font-size: 1.6rem;
     }
 
