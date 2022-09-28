@@ -66,7 +66,7 @@ export const Container = styled.div`
     }
   }
 
-  > button {
+  > .favorite-btn {
     position: absolute;
     top: 1.6rem;
     right: 1.6rem;
@@ -76,6 +76,16 @@ export const Container = styled.div`
 
     > svg {
       color: ${({ theme }) => theme.COLORS.WHITE};
+      font-size: 3.2rem;
+    }
+  }
+
+  .edit-btn {
+    position: absolute;
+    top: 0.2rem;
+    left: 1.6rem;
+
+    > svg {
       font-size: 3.2rem;
     }
   }

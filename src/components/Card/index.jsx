@@ -1,6 +1,8 @@
 import { Container } from './styles';
 
-import { FiHeart } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+
+import { FiHeart, FiEdit3  } from 'react-icons/fi';
 import { FaAngleRight } from 'react-icons/fa';
 
 import spaguettiImg from '../../assets/spaguetti.png'
@@ -12,9 +14,9 @@ export function Card(){
     <Container>
         <img src={spaguettiImg} alt="" />
         
-        <a href="#">
+        <Link to="/details">
           <h2>Spaguetti Gambe <FaAngleRight/></h2>
-        </a>
+        </Link>
         
         <p>Massa fresca com camarões e pesto.</p>
 
@@ -28,9 +30,17 @@ export function Card(){
           <Button title="Incluir"/>
         </div>
 
-        <button>
+        <button className='favorite-btn'>
           <FiHeart/>
         </button>
+
+
+        <Link to="/edit" className='edit-btn'>
+          <FiEdit3/>
+
+        </Link>
+        
+
 
     </Container>
   )

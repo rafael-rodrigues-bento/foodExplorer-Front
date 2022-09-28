@@ -8,7 +8,7 @@ export const Container = styled.header`
   padding-block: 3.7rem;
   background-color: ${({ theme }) => theme.COLORS.BG_700};
 
-  > div:first-child {
+  > div:first-child a {
     display: flex;
     gap: 1rem;
 

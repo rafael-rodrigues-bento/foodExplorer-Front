@@ -75,6 +75,7 @@ export const Container = styled.div`
             font-size: 3.2rem;
             line-height: 160%;
             color: ${({ theme }) => theme.COLORS.BLUE};
+            white-space: nowrap;
           }
 
           > .amount {

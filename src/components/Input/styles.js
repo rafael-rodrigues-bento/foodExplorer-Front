@@ -15,9 +15,10 @@ export const Container = styled.div`
     width: 100%;
 
     color: ${({ theme }) => theme.COLORS.GRAY_300};
-    background-color: ${({ theme }) => theme.COLORS.BG_400};
+    background-color: transparent;
 
     border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+    border-radius: 0.5rem;
 
     font-size: 1.6rem;
 

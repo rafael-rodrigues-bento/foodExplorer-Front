@@ -1,7 +1,9 @@
 import { Container } from './styles';
 
-import { FaReceipt } from 'react-icons/fa'
-import { FaAngleLeft } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
+
+import { FaReceipt } from 'react-icons/fa';
+import { FaAngleLeft } from 'react-icons/fa';
 
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
@@ -17,7 +19,7 @@ export function Details(){
       
       <main>
       
-        <a href="#"><FaAngleLeft/> Voltar</a>
+        <Link to="/"><FaAngleLeft/> Voltar</Link>
 
         <section>
 
