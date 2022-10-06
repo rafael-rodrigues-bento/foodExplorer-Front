@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Container, Form } from './styles';
 
+import { useAuth } from '../../hooks/auth';
+
 import { Link } from 'react-router-dom';
 
 import { api } from '../../services/api';
@@ -12,6 +14,7 @@ export function SignUp(){
   const [name, setName ] = useState("");
   const [email, setEmail ] = useState("");
   const [password, setPassword ] = useState("");
+
 
   function handleSubmit(){
     if( !name || !email || !password){

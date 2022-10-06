@@ -1,6 +1,8 @@
 import { FiLogOut, FiSearch } from 'react-icons/fi';
 import { FaReceipt } from 'react-icons/fa'
 
+import { useAuth } from '../../hooks/auth';
+
 import { Link } from 'react-router-dom';
 
 import { Container } from './styles';
@@ -8,6 +10,9 @@ import { Container } from './styles';
 import { Button } from '../../components/Button';
 
 export function Header(){
+
+  const { signOut } = useAuth();
+  
   return (
     <Container>
       <div>
@@ -34,9 +39,9 @@ export function Header(){
 
         <Button icon={FaReceipt} title="Meu pedido (0)"/>
       
-        <div className="logout">
+        <Link onClick={signOut} className="logout">
           <FiLogOut/>
-        </div>
+        </Link>
 
       </nav>
       
