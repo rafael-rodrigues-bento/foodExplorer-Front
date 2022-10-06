@@ -8,6 +8,8 @@ export const Container = styled.div`
   align-items: center;
   gap: 0.8rem;
 
+  margin-inline: 3rem;
+
   > img {
     height: 7.3rem;
   }

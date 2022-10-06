@@ -1,11 +1,36 @@
+import { useState } from 'react';
 import { Container, Form } from './styles';
 
 import { Link } from 'react-router-dom';
+
+import { api } from '../../services/api';
 
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
 
 export function SignUp(){
+  const [name, setName ] = useState("");
+  const [email, setEmail ] = useState("");
+  const [password, setPassword ] = useState("");
+
+  function handleSubmit(){
+    if( !name || !email || !password){
+      return alert("Preencha todos os campos!")
+    }
+
+    api.post('/users', { name, email, password })
+    .then(() => {
+    alert("Conta criada com sucesso!")
+  })
+    .catch(error => {
+      if (error.response){
+        alert(error.response.data.message);
+      } else {
+        alert("Não foi possível criar a conta no momento!")
+      }
+    })}
+
+
   return (
     <Container>
       <div>
@@ -19,26 +44,33 @@ export function SignUp(){
           <h1>Crie sua conta</h1>
 
           <Input 
+            type="text"
             title="Nome"
             label="name"
             placeholder="Exemplo: Rafael Bento"
+            onChange={e => setName(e.target.value)}
           />
 
 
           <Input
+            type="email"
             title="Email"
             label="email"
             placeholder="exemplo@exemplo.com.br"
+            onChange={e => setEmail(e.target.value)}
           />
 
           <Input
+            type="password"
             title="Senha"
             label="password"
             placeholder="No mínimo 6 caracteres"
+            onChange={e => setPassword(e.target.value)}
           />
 
           <Button 
             title="Criar sua conta"
+            onClick={handleSubmit}
           />
 
           <Link to="/">Já tenho uma conta</Link>
@@ -47,4 +79,4 @@ export function SignUp(){
 
     </Container>
   )
-}
+  }

@@ -31,9 +31,9 @@ export function Details(){
             <h1>Spaguetti Gambe</h1>
             <h2>Massa fresca com camarões e pesto.</h2>
             <div className="ingredients">
-              <Ingredient/>
-              <Ingredient/>
-              <Ingredient/>
+              <Ingredient ingredientName="Camarão" />
+              <Ingredient ingredientName="Massa"/>
+              <Ingredient ingredientName="Pesto"/>
             </div>
 
             <div className="order">
