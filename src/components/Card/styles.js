@@ -80,6 +80,10 @@ export const Container = styled.div`
     }
   }
 
+  > .remove {
+    display: none;
+  }
+
   .edit-btn {
     position: absolute;
     top: 0.2rem;

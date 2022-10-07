@@ -1,5 +1,7 @@
 import { Container } from './styles';
 
+import { useAuth } from '../../hooks/auth';
+
 import { Link } from 'react-router-dom';
 
 import { FiHeart, FiEdit3  } from 'react-icons/fi';
@@ -10,6 +12,9 @@ import spaguettiImg from '../../assets/spaguetti.png'
 import { Button } from '../Button'
 
 export function Card(){
+
+  const  { user } = useAuth();
+
   return (
     <Container>
         <img src={spaguettiImg} alt="" />
@@ -35,7 +40,7 @@ export function Card(){
         </button>
 
 
-        <Link to="/edit" className='edit-btn'>
+        <Link to="/edit" className={user.is_admin ? "edit-btn" : "remove"}>
           <FiEdit3/>
 
         </Link>

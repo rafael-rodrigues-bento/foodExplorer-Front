@@ -11,7 +11,8 @@ import { Button } from '../../components/Button';
 
 export function Header(){
 
-  const { signOut } = useAuth();
+  const { signOut, user } = useAuth();
+
   
   return (
     <Container>
@@ -27,7 +28,8 @@ export function Header(){
       </div>
 
       <nav>
-        <a href="#">Meus favoritos</a>
+        
+        {user.is_admin ? <a href="/new">Novo Prato</a> : <a href="#">Meus favoritos</a> }
         
         <div className="search">
           <FiSearch size={20}/>
