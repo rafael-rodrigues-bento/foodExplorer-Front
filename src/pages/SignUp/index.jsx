@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Container, Form } from './styles';
 
-import { useAuth } from '../../hooks/auth';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { api } from '../../services/api';
 
@@ -15,10 +14,16 @@ export function SignUp(){
   const [email, setEmail ] = useState("");
   const [password, setPassword ] = useState("");
 
+  const navigate = useNavigate();
+
 
   function handleSubmit(){
     if( !name || !email || !password){
       return alert("Preencha todos os campos!")
+    }
+
+    if( password.length < 6){
+      return alert("Senha precisa de no mínimo 6 caracteres!")
     }
 
     api.post('/users', { name, email, password })
@@ -31,7 +36,10 @@ export function SignUp(){
       } else {
         alert("Não foi possível criar a conta no momento!")
       }
-    })}
+    })
+    
+    navigate("/");
+  }
 
 
   return (

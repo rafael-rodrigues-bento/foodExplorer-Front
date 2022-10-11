@@ -1,7 +1,11 @@
+import { useState, useEffect } from 'react';
+
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 import { Container, Slogan } from './styles';
+
+import { api } from '../../services/api';
 
 import { Header } from '../../components/Header';
 import { Card } from '../../components/Card';
@@ -11,6 +15,20 @@ import sloganImg from '../../assets/slogan.png';
 
 
 export function Home(){
+
+  const [ dishes, setDishes ] = useState([]);
+  const [ search, setSearch ] = useState("");
+
+  useEffect(() => {
+    async function fetchDishes() {
+      const response = await api.get(`/dishes?title=${search}`);
+      setDishes(response.data);
+    }
+
+    fetchDishes();
+  }, [search])
+
+
 
   const responsive = {
     superLargeDesktop: {
@@ -34,7 +52,7 @@ export function Home(){
 
   return (
     <Container>
-      <Header/>
+      <Header search={setSearch}/>
       
       <main>
 
@@ -53,101 +71,33 @@ export function Home(){
 
         <section>
           <h3>Pratos principais</h3>
-
-          <Carousel 
-            responsive={responsive}
-            
-          >
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
+          <Carousel responsive={responsive}>
+            {dishes.filter(dish => dish.category == "Pratos Principais").map((dish) => (
+              <Card key={dish.id} data={dish} />
+            ))}
           </Carousel>
         </section>
 
         <section>
           <h3>Sobremesas</h3>
-
-          <Carousel 
-            responsive={responsive}
-            
-          >
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-          </Carousel>
-        </section>
-
+            <Carousel responsive={responsive}>
+              {dishes.filter(dish => dish.category == "Sobremesas").map((dish) => (
+                <Card key={dish.id} data={dish} />
+              ))}
+            </Carousel>
+       </section>
+        
         <section>
           <h3>Bebidas</h3>
-
-          <Carousel 
-            responsive={responsive}
-            
-          >
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-            <div>
-              <Card/>
-            </div>
-          </Carousel>
+            <Carousel responsive={responsive}>
+              {dishes.filter(dish => dish.category == "Bebidas").map((dish) => (
+                <Card key={dish.id} data={dish} />
+              ))}
+            </Carousel>
         </section>
 
       </main>
-
-      <Footer/>
-   
-    </Container>
+    <Footer/>
+  </Container>
   )  
 }

@@ -20,8 +20,11 @@ export const Container = styled.div`
     border-radius: 50%;
   }
 
-  > a {
+  > button {
     margin-top: 1.6rem;
+    background: transparent;
+    border: none;
+    color: ${({ theme }) => theme.COLORS.WHITE};
 
     > h2 {
       display: flex;
@@ -86,7 +89,7 @@ export const Container = styled.div`
 
   .edit-btn {
     position: absolute;
-    top: 0.2rem;
+    top: 1.6rem;
     left: 1.6rem;
 
     > svg {

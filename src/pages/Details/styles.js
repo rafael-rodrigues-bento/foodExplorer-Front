@@ -4,7 +4,7 @@ export const Container = styled.div`
   > main {
     margin-inline: 40rem;
 
-    > a {
+    > button {
       display: flex;
       align-items: center;
 
@@ -15,6 +15,9 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.COLORS.GRAY_100};
       margin-top: 2.4rem;
       margin-bottom: 4.1rem;
+
+      background: none;
+      border: none;
 
       > svg {
         font-size: 3.2rem;

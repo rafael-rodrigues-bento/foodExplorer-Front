@@ -9,9 +9,13 @@ import { Container } from './styles';
 
 import { Button } from '../../components/Button';
 
-export function Header(){
+export function Header({ search}){
 
   const { signOut, user } = useAuth();
+
+  function handleSignOut(){
+    signOut();
+  }
 
   
   return (
@@ -33,7 +37,8 @@ export function Header(){
         
         <div className="search">
           <FiSearch size={20}/>
-          <input 
+          <input
+            onChange={e => search(e.target.value)} 
             type="text" 
             placeholder="Busque pelas opções de pratos"
           />
@@ -41,7 +46,7 @@ export function Header(){
 
         <Button icon={FaReceipt} title="Meu pedido (0)"/>
       
-        <Link onClick={signOut} className="logout">
+        <Link to="/" onClick={handleSignOut} className="logout">
           <FiLogOut/>
         </Link>
 

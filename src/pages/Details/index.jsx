@@ -1,44 +1,67 @@
+import { useState, useEffect } from 'react';
+import { FaReceipt, FaAngleLeft } from 'react-icons/fa';
 import { Container } from './styles';
 
-import { Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
-import { FaReceipt } from 'react-icons/fa';
-import { FaAngleLeft } from 'react-icons/fa';
+import { api } from '../../services/api';
 
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { Ingredient } from '../../components/Ingredient';
-
-import spaguettiImg from '../../assets/spaguetti.png'
 import { Button } from '../../components/Button';
 
 export function Details(){
+
+  const [ data, setData ] = useState(null);
+
+  const params = useParams();
+  const imgURL = data && `${api.defaults.baseURL}/files/${data.img}`;
+
+  const navigation = useNavigate();
+
+  function handleBack(){
+    navigation(-1);
+  }
+
+  useEffect(() => {
+    async function fetchDish(){
+      const response = await api.get(`/dishes/${params.id}`);
+      setData(response.data);
+    }
+
+    fetchDish();
+  }, [])
+
   return (
     <Container>
       <Header />
       
-      <main>
+      { data &&
+        <main>
       
-        <Link to="/"><FaAngleLeft/> Voltar</Link>
+          <button onClick={handleBack}><FaAngleLeft/> Voltar</button>
 
-        <section>
+          <section>
 
-          <div className="img">
-            <img src={spaguettiImg} alt="" />
-          </div>
+            <div className="img">
+              <img src={imgURL} alt="" />
+            </div>
 
-          <div className="details">
-            <h1>Spaguetti Gambe</h1>
-            <h2>Massa fresca com camarões e pesto.</h2>
+            <div className="details">
+              <h1>{data.title}</h1>
+              <h2>{data.description}</h2>
             <div className="ingredients">
-              <Ingredient ingredientName="Camarão" />
-              <Ingredient ingredientName="Massa"/>
-              <Ingredient ingredientName="Pesto"/>
+              {
+                data.ingredients.map(ingredient => (
+                  <Ingredient key={String(ingredient.id)} ingredientName={ingredient.name} />
+                ))
+              }
             </div>
 
             <div className="order">
               <div className="price">
-                <p>R$ 25,97</p>
+                <p>R$ {data.price}</p>
               </div>
 
               <div className="amount">
@@ -53,6 +76,7 @@ export function Details(){
         </section>
 
       </main>
+      }
       
       <footer>
         <Footer/>

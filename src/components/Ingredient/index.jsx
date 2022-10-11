@@ -34,6 +34,8 @@ export function Ingredient({ ingredientName }){
     ingredientName = ingredientName.replace(/[ÀÁÂÃÄÅ]/g,"A");
     ingredientName = ingredientName.replace(/[àáâãäå]/g,"a");
     ingredientName = ingredientName.replace(/[ÈÉÊË]/g,"E");
+    ingredientName = ingredientName.replace(/[ùúûũ]/g,"u");
+    ingredientName = ingredientName.replace(/[ÙÚÛŨ]/g,"U");
     ingredientName = ingredientName.replace(/[^a-z0-9]/gi,'');
 
     let result
@@ -47,7 +49,7 @@ export function Ingredient({ ingredientName }){
     }
     else if(ingredientName == "rucula"){
       return result = arugula
-    }else if(ingredientName == "pao-naan"){
+    }else if(ingredientName == "paonaan"){
       return result = breadNaan
     }else if(ingredientName == "pao"){
       return result = bread
