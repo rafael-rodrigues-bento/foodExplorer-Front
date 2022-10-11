@@ -30,13 +30,13 @@ A aplicação  é um cardápio digital para um restaurante fictício, conhecido 
 
 - Um projeto estruturado, com uma boa organização das pastas, divisão de componentes no front-end, etc.
 
-- Os usuários deverão se autenticar para entrar na aplicação através da tela de login, você pode aplicar o que aprendeu nas aulas de autenticação JWT. A autenticação deve ser validada com senha.
+- Autenticação JWT
 
-- O admin irá fazer upload de imagens para cadastrar os pratos.
+- Upload de imagens
 
 - É essencial que a sua interface consuma a sua própria API.
 
--Atende ao modelo proposto no Figma e contém elementos indicativos de ação e estado.
+- Atende ao modelo proposto no Figma e contém elementos indicativos de ação e estado.
 
 - Para finalizar, faça o deploy da sua aplicação.
 
