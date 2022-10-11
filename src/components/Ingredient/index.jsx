@@ -31,13 +31,13 @@ export function Ingredient({ ingredientName }){
   function renderImgIngredient(name){
     let ingredientName = name.toLowerCase();
 
-    ingredientName = ingredientName.replace(/[ÀÁÂÃÄÅ]/g,"A");
+    ingredientName = ingredientName.replace(/[ÀÁÂÃÄÅ]/g,"a");
     ingredientName = ingredientName.replace(/[àáâãäå]/g,"a");
-    ingredientName = ingredientName.replace(/[ÈÉÊË]/g,"E");
-    ingredientName = ingredientName.replace(/[éèêẽ]/g,"E");
+    ingredientName = ingredientName.replace(/[ÈÉÊË]/g,"e");
+    ingredientName = ingredientName.replace(/[éèêẽ]/g,"e");
     ingredientName = ingredientName.replace(/[ùúûũ]/g,"u");
-    ingredientName = ingredientName.replace(/[ÙÚÛŨ]/g,"U");
-    ingredientName = ingredientName.replace(/[^a-z0-9]/gi,'');
+    ingredientName = ingredientName.replace(/[ÙÚÛŨ]/g,"u");
+    
 
     let result
 
@@ -50,7 +50,7 @@ export function Ingredient({ ingredientName }){
     }
     else if(ingredientName == "rucula"){
       return result = arugula
-    }else if(ingredientName == "paonaan"){
+    }else if(ingredientName == "pao naan"){
       return result = breadNaan
     }else if(ingredientName == "pao"){
       return result = bread
