@@ -17,6 +17,10 @@ export function Header({ search}){
     signOut();
   }
 
+  function handleMyOrder(){
+    alert("Este recurso será adicionado em breve!")
+  }
+
   
   return (
     <Container>
@@ -44,7 +48,7 @@ export function Header({ search}){
           />
         </div>
 
-        <Button icon={FaReceipt} title="Meu pedido (0)"/>
+        <Button onClick={handleMyOrder} icon={FaReceipt} title="Meu pedido (0)"/>
       
         <Link to="/" onClick={handleSignOut} className="logout">
           <FiLogOut/>

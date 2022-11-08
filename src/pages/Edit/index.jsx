@@ -22,6 +22,7 @@ export function Edit(){
   const [ category, setCategory ] = useState("");
   const [ price, setPrice ] = useState(""); 
   const [ description, setDescription ] = useState("");
+  
   const [ imgFile, setImgFile ] = useState(null);
 
   const [ ingredients, setIngredients ] = useState([]);

@@ -14,12 +14,24 @@ export function SignUp(){
   const [email, setEmail ] = useState("");
   const [password, setPassword ] = useState("");
 
+  function validEmail(email){
+    return /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/.test(email)
+  }
+
+
   const navigate = useNavigate();
 
 
   function handleSubmit(){
+
+
     if( !name || !email || !password){
       return alert("Preencha todos os campos!")
+    }
+
+    if(!validEmail(email)){
+      alert("Por favor insira um email válido!")
+      return;
     }
 
     if( password.length < 6){

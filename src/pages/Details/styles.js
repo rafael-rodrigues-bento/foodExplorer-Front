@@ -86,6 +86,21 @@ export const Container = styled.div`
             align-items: center;
             gap: 1.4rem;
 
+            .less-btn,
+            .more-btn {
+              border: none;
+              background: transparent;
+              color: #ffffff;
+              font-weight: 700;
+              font-size: 2rem;
+              line-height: 160%;
+              transition: transform 0.8s;
+
+              &:hover {
+                transform: scale(2);
+              }
+            }
+
             > span {
               font-weight: 700;
               font-size: 2rem;

@@ -18,6 +18,7 @@ export function Home(){
 
   const [ dishes, setDishes ] = useState([]);
   const [ search, setSearch ] = useState("");
+  
 
   useEffect(() => {
     async function fetchDishes() {

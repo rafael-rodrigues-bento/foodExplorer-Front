@@ -15,6 +15,20 @@ export function Details(){
 
   const [ data, setData ] = useState(null);
 
+  const [ quantity, setQuantity ] = useState(1);
+
+  function changeMoreQuantity(){
+    setQuantity(quantity + 1)
+  }
+
+  function changeLessQuantity(){
+    setQuantity(quantity >= 2 ? quantity - 1 : quantity)
+  }
+
+  function handleNewOrder(){
+    alert("Este recurso será adicionado em breve!")
+  }
+
   const params = useParams();
   const imgURL = data && `${api.defaults.baseURL}/files/${data.img}`;
 
@@ -65,12 +79,12 @@ export function Details(){
               </div>
 
               <div className="amount">
-                <span>-</span>
-                <span>01</span>
-                <span>+</span>
+                <button className='less-btn' onClick={changeLessQuantity}> - </button>
+                <span> {quantity <= 9 ? 0 : ""}{quantity} </span>
+                <button className='more-btn' onClick={changeMoreQuantity}> + </button>
               </div>
 
-              <Button icon={FaReceipt} title="Incluir"/>
+              <Button onClick={handleNewOrder} icon={FaReceipt} title="Incluir"/>
             </div>
           </div>
         </section>

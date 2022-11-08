@@ -18,6 +18,11 @@ export const Container = styled.div`
     width: 17.6rem;
     height: 17.6rem;
     border-radius: 50%;
+    transition: transform 0.6s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   > button {
@@ -35,6 +40,11 @@ export const Container = styled.div`
       font-weight: 700;
       font-size: 2.4rem;
       line-height: 140%;
+      transition: color 0.4s;
+
+      &:hover {
+        color: ${({ theme }) => theme.COLORS.BLUE};
+      }
     }
   }
 
@@ -80,6 +90,11 @@ export const Container = styled.div`
     > svg {
       color: ${({ theme }) => theme.COLORS.WHITE};
       font-size: 3.2rem;
+      transition: color 0.7s;
+
+      &:hover {
+        color: red;
+      }
     }
   }
 
@@ -91,9 +106,29 @@ export const Container = styled.div`
     position: absolute;
     top: 1.6rem;
     left: 1.6rem;
+    transition: color 0.4s;
+
+    &:hover {
+      color: ${({ theme }) => theme.COLORS.BLUE};
+    }
 
     > svg {
       font-size: 3.2rem;
+    }
+  }
+
+  .quantity-order .less-btn,
+  .more-btn {
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 160%;
+    transition: transform 0.8s;
+
+    &:hover {
+      transform: scale(2);
     }
   }
 `;

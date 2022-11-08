@@ -82,7 +82,7 @@ export function New(){
     formData.append("title", title);
     formData.append("description", description);
     formData.append("category", category);
-    formData.append("price", price);
+    formData.append("price", price.replace(".", ","));
 
     ingredients.map(ingredient => (
       formData.append("ingredients", ingredient)
@@ -132,14 +132,27 @@ export function New(){
                 type="text" 
                 placeholder="Ex.: Salada Ceasar"
               />
+              
+              <div className='category-wrapper'>
+                <label htmlFor="category">Categoria</label>
+                <select 
+                  onChange={ e => setCategory(e.target.value)}
+                  id="category">
+                    <option value="">Selecione a categoria do prato!</option>
+                    <option value="Pratos Principais">Pratos Principais</option>
+                    <option value="Sobremesas">Sobremesas</option>
+                    <option value="Bebidas">Bebidas</option>
+                  </select>
+              </div>
+              
 
-              <Input
+              {/* <Input
                 onChange={ e => setCategory(e.target.value)}
                 label="category"
                 title="Categoria"
                 type="text"
                 placeholder="Ex: Pratos principais"
-              />
+              /> */}
             </InputWrapper>
 
             <InputWrapper>
@@ -173,7 +186,7 @@ export function New(){
                 onChange={ e => setPrice(e.target.value)}
                 label="price"
                 title="Preço"
-                type="text"
+                type="number"
                 placeholder="R$ 00,00"
               />
             </InputWrapper>
@@ -193,7 +206,6 @@ export function New(){
             <button
               type='button' 
               onClick={handleNewDish}
-              //onClick={console.log(formData)}
               className='submit-btn'
             >
                 Adicionar prato

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { FiHeart, FiEdit3, FiTrash  } from 'react-icons/fi';
 import { FaAngleRight } from 'react-icons/fa';
 
@@ -12,6 +13,24 @@ import { Button } from '../Button'
 
 export function Card({ data }){
   const imgURL = `${api.defaults.baseURL}/files/${data.img}`
+
+  const [ quantity, setQuantity ] = useState(1);
+
+  function changeMoreQuantity(){
+    setQuantity(quantity + 1)
+  }
+
+  function changeLessQuantity(){
+    setQuantity(quantity >= 2 ? quantity - 1 : quantity)
+  }
+
+  function handleNewOrder(){
+    alert("Este recurso será adicionado em breve!")
+  }
+
+  function handleFavoriteDish(){
+    alert("Recurso será adicionado em breve!")
+  }
 
   const  { user } = useAuth();
   const navigate = useNavigate();
@@ -45,12 +64,12 @@ export function Card({ data }){
 
         <span>R$ {data.price}</span>
 
-        <div>
-          <span> - </span>
-          <span> 01 </span>
-          <span> + </span>
+        <div className='quantity-order'>
+          <button className='less-btn' onClick={changeLessQuantity}> - </button>
+          <span> {quantity <= 9 ? 0 : ""}{quantity} </span>
+          <button className='more-btn' onClick={changeMoreQuantity}> + </button>
 
-          <Button title="Incluir"/>
+          <Button onClick={handleNewOrder} title="Incluir"/>
         </div>
 
         { user.is_admin ?
@@ -61,7 +80,7 @@ export function Card({ data }){
 
               :
 
-          <button className='favorite-btn'>
+          <button onClick={handleFavoriteDish} className='favorite-btn'>
             <FiHeart/>
           </button> 
         }
