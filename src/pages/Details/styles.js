@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   > main {
-    margin-inline: 40rem;
+     max-width: 136.8rem;
+     padding-inline: 4rem;
+     margin-inline: auto;
 
     > button {
       display: flex;
@@ -15,20 +17,25 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.COLORS.GRAY_100};
       margin-top: 2.4rem;
       margin-bottom: 4.1rem;
-
+      flex: 1;
       background: none;
       border: none;
-
+      
       > svg {
         font-size: 3.2rem;
       }
     }
 
     > section {
-      display: flex;
-      align-items: center;
-
-      gap: 4.1rem;
+        max-width: 136.8rem;
+        height: 100%;
+        padding-inline: 4rem;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        gap: 5rem;
 
       > .img {
         width: 38.9rem;
